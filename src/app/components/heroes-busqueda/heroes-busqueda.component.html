@@ -1,5 +1,14 @@
 <h1>Buscando: <small>{{ termino }}</small></h1>
 <hr />
+
+<div *ngIf="heroes.length === 0" class="row">
+  <div class="col-md-12">
+    <div class="alert alert-info" role="alert">
+      No existen resultados con el término: {{ termino }}
+    </div>
+  </div>
+</div>
+
 <div class="card-columns">
   <div class="card animated fadeIn fast" *ngFor="let heroe of heroes">
     <img [src]="heroe.img" class="card-img-top img-fluid" [alt]="heroe.nombre" />
@@ -15,8 +24,5 @@
     <button (click)="verHeroe(heroe.id)" type="button" class="btn btn-outline-primary btn-block">
       Ver más...
     </button>
-    <!--  <a [routerLink]="['/heroe', i]" class="btn btn-outline-primary btn-block"
-      >Ver más</a
-    > -->
   </div>
 </div>
